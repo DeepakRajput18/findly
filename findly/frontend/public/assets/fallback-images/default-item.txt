@@ -1,0 +1,10 @@
+Please add a default image named "default-item.jpg" in this folder. This will be used as a fallback when external image loading fails.
+
+For each category, you may also want to add category-specific placeholder images like:
+- electronics.jpg
+- keys.jpg
+- wallet.jpg
+- jewelry.jpg
+- clothing.jpg
+- documents.jpg
+- etc. 

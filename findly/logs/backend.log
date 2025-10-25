@@ -1,0 +1,54 @@
+
+
+[2025-04-12T04:38:43.121Z] Starting backend server
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend ERROR] Port 5001 is already in use. Please try a different port.
+[Backend] process exited with code 1. Attempting to restart...
+[Backend] Upload directory set to: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Serving static files from: C:\Users\vhmeh\Desktop\findly (2)\findly\findly\backend\uploads
+[Backend] Server running on port 5001
+[Backend] Frontend URL: http://localhost:5174
+Backend URL: http://localhost:5001
+[Backend] Connected to MongoDB
+[Backend] Database URL: mongodb://localhost:27017/findly

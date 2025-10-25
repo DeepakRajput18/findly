@@ -1,0 +1,190 @@
+
+
+[2025-04-12T04:38:43.121Z] Starting frontend server
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
+[Frontend] 
+> frontend@0.0.0 dev
+> vite
+
+[Frontend ERROR] [31merror when starting dev server:
+Error: Port 5173 is already in use
+    at Server.onError (file:///C:/Users/vhmeh/Desktop/findly%20(2)/findly/findly/frontend/node_modules/vite/dist/node/chunks/dep-B0fRCRkQ.js:30664:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1973:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[Frontend] process exited with code 1. Attempting to restart...
