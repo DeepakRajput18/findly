@@ -1,4 +1,4 @@
-y# Build frontend
+# Build frontend
 FROM node:18-alpine as frontend-build
 WORKDIR /app
 COPY frontend/package*.json ./
