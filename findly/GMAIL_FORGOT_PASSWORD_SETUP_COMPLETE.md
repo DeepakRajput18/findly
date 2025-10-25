@@ -192,3 +192,4 @@ Your Forgot Password feature is now:
 **To enable Gmail delivery, simply follow the setup instructions and update your .env file with your Gmail App Password!** 🚀
 
 
+
