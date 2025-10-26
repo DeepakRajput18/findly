@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Deploy Findly Application
 
 on:
   push:
@@ -7,12 +7,42 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker images
+      run: |
+        cd findly
+        docker-compose build
+        
+    - name: Test Docker containers
+      run: |
+        cd findly
+        docker-compose up -d
+        sleep 30
+        docker-compose ps
+        docker-compose down
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Deploy to production
+      run: |
+        echo "Deployment step - customize based on your hosting platform"
+        echo "Examples:"
+        echo "1. For VPS: Use SSH to connect and run docker-compose up"
+        echo "2. For cloud platforms: Use their CLI tools"
+        echo "3. For container registries: Push images and deploy"
