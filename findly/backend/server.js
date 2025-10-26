@@ -63,21 +63,30 @@ app.use((req, res, next) => {
   next();
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/findly')
-  .then(() => {
-    console.log('Connected to MongoDB');
-    console.log('Database URL:', process.env.MONGODB_URI || 'mongodb://localhost:27017/findly');
-  })
-  .catch(err => {
+// Connect to MongoDB (non-blocking)
+const connectToMongoDB = async () => {
+  try {
+    if (process.env.MONGODB_URI) {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log('Connected to MongoDB');
+      console.log('Database URL:', process.env.MONGODB_URI);
+    } else {
+      console.log('No MongoDB URI provided, running without database');
+      console.log('To enable database features, set MONGODB_URI environment variable');
+    }
+  } catch (err) {
     console.error('MongoDB connection error:', err);
     console.error('Error details:', {
       name: err.name,
       message: err.message,
       code: err.code
     });
-    process.exit(1);
-  });
+    console.log('Continuing without database connection...');
+  }
+};
+
+// Connect to MongoDB without blocking server startup
+connectToMongoDB();
 
 // Add error handler for unhandled promise rejections
 process.on('unhandledRejection', (err) => {
@@ -135,7 +144,8 @@ app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
     db: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
-    uptime: process.uptime()
+    uptime: process.uptime(),
+    mongodb_uri: process.env.MONGODB_URI ? 'configured' : 'not configured'
   });
 });
 
