@@ -6,6 +6,8 @@
   "scripts": {
     "build": "cd frontend && npm ci && npm run build",
     "start": "cd backend && npm install --production && npm start",
+    "render:build": "npm run install-all && npm run build",
+    "render:start": "cd backend && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
@@ -26,5 +28,9 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^8.19.2"
   }
-} 
+}
