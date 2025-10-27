@@ -1,0 +1,41 @@
+=============================================
+COPY AND PASTE THESE IN RENDER ENVIRONMENT TAB
+=============================================
+
+MONGODB_URI=mongodb+srv://findly-user:YOUR_PASSWORD@cluster0.hbjeybx.mongodb.net/findly?retryWrites=true&w=majority
+
+JWT_SECRET=findly_secret_key_change_in_production_12345
+
+NODE_ENV=production
+
+PORT=10000
+
+=============================================
+IMPORTANT:
+=============================================
+
+1. Replace YOUR_PASSWORD with your actual MongoDB Atlas password
+
+2. If password has special characters (@, #, &, etc.):
+   - Go to: https://www.urlencoder.org/
+   - Encode your password
+   - Example: Deepak@123 → Deepak%40123
+
+3. In Render dashboard:
+   - Go to your service
+   - Click "Environment" tab
+   - Click "Add Environment Variable" for each one above
+   - Do NOT include quotes around values
+
+4. After adding variables, Render will auto-deploy (wait 2-3 minutes)
+
+=============================================
+TEST AFTER DEPLOYMENT:
+=============================================
+
+curl https://findly-app.onrender.com/health
+
+Should return:
+{"status":"ok","db":"connected"}
+
+=============================================

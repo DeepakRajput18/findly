@@ -16,11 +16,18 @@ const locationRoutes = require('./routes/locationRoutes');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 10000; // Render uses port 10000 by default
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:80', 'http://localhost'], // Allow both frontend ports and Docker setup
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:5174', 
+    'http://localhost:80', 
+    'http://localhost',
+    'https://findly-app.onrender.com',
+    'https://findly.onrender.com'
+  ], // Allow both localhost and Render deployment
   credentials: true
 }));
 app.use(express.json());
