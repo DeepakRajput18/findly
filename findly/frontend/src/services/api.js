@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-// Use relative URL for Docker setup, fallback to localhost for development
-const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5001/api';
+// Use environment variable for API URL, fallback to relative path or localhost
+const API_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : (process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5001/api');
 
 // Add request timeout
 axios.defaults.timeout = 15000; // 15 seconds timeout

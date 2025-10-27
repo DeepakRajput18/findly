@@ -27,7 +27,8 @@ export const AuthProvider = ({ children }) => {
             
             // Verify token is still valid (optional - can be removed for better performance)
             try {
-              const response = await axios.get('http://localhost:5001/api/users/me');
+              const apiUrl = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
+              const response = await axios.get(`${apiUrl}/users/me`);
               setUser(response.data);
             } catch (error) {
               // Token is invalid, clear storage
