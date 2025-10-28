@@ -132,3 +132,4 @@ After adding environment variables:
 ---
 
 **Go to Render now and add those 4 environment variables! 🚀**
+

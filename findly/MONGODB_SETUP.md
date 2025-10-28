@@ -34,3 +34,10 @@ mongodb+srv://findly-user:password123@cluster0.abc123.mongodb.net/findly?retryWr
 
 ## Your App URL:
 https://findly-app.onrender.com
+
+
+
+
+
+
+

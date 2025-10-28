@@ -10,3 +10,10 @@
 # NODE_ENV=production
 # MONGODB_URI=mongodb://mongo:27017/findly
 # PORT=5001
+
+
+
+
+
+
+

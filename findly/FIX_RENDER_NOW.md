@@ -117,3 +117,4 @@ Replace `PASSWORD_HERE` with your actual password!
 **Follow these steps and your app will be live! 🚀**
 
 If you need detailed help, see: `RENDER_FIX_GUIDE.md`
+

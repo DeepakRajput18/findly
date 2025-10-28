@@ -156,3 +156,4 @@ After adding variables:
 ---
 
 **Follow ALL steps above and black screen will be PERMANENTLY fixed! 🚀**
+

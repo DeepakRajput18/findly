@@ -18,3 +18,4 @@ echo "PORT: $PORT"
 # Start the application using docker-compose
 echo "Starting Docker containers..."
 docker-compose -f render-compose.yml up --build
+
