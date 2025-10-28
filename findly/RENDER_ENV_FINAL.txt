@@ -1,0 +1,50 @@
+==================================================================
+COPY AND PASTE THESE INTO RENDER ENVIRONMENT TAB
+==================================================================
+
+VARIABLE 1:
+Key: MONGODB_URI
+Value: mongodb+srv://findly-user:Findly123@cluster0.hbjeybx.mongodb.net/findly?retryWrites=true&w=majority
+
+VARIABLE 2:
+Key: JWT_SECRET
+Value: findly_secret_key_change_in_production_12345
+
+VARIABLE 3:
+Key: NODE_ENV
+Value: production
+
+VARIABLE 4:
+Key: PORT
+Value: 10000
+
+VARIABLE 5:
+Key: VITE_API_URL
+Value: https://findly-app.onrender.com
+
+==================================================================
+IMPORTANT NOTES:
+==================================================================
+
+1. Password is: Findly123 (no special characters, no URL encoding needed)
+2. Copy EXACT strings above
+3. Do NOT add quotes around values
+4. Click "Save Changes" after adding all 5 variables
+5. Wait for Render to redeploy (3-5 minutes)
+6. Your app will work after deployment completes!
+
+==================================================================
+TEST YOUR APP:
+==================================================================
+
+After deployment, visit:
+https://findly-app.onrender.com
+
+Should see Findly app (NOT black screen!)
+
+Check health:
+https://findly-app.onrender.com/health
+
+Should return: {"status":"ok","db":"connected"}
+
+==================================================================

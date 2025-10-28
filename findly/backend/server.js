@@ -73,24 +73,34 @@ app.use((req, res, next) => {
 // Connect to MongoDB (non-blocking)
 const connectToMongoDB = async () => {
   try {
-    if (process.env.MONGODB_URI) {
-      await mongoose.connect(process.env.MONGODB_URI);
-      console.log('Connected to MongoDB');
-      console.log('Database URL:', process.env.MONGODB_URI);
+    const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI;
+    
+    if (mongoUri) {
+      await mongoose.connect(mongoUri);
+      console.log('✅ Connected to MongoDB');
+      console.log('Database:', mongoose.connection.name);
     } else {
-      console.log('No MongoDB URI provided, running without database');
+      console.log('⚠️ No MongoDB URI provided, running without database');
       console.log('To enable database features, set MONGODB_URI environment variable');
     }
   } catch (err) {
-    console.error('MongoDB connection error:', err);
-    console.error('Error details:', {
-      name: err.name,
-      message: err.message,
-      code: err.code
-    });
-    console.log('Continuing without database connection...');
+    console.error('❌ MongoDB connection error:', err.message);
+    console.log('ℹ️ Continuing without database connection...');
   }
 };
+
+// MongoDB connection error handler
+mongoose.connection.on("error", err => {
+  console.error("⚠️ MongoDB connection error:", err.message);
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("✅ MongoDB connection: active");
+});
+
+mongoose.connection.on("disconnected", () => {
+  console.log("⚠️ MongoDB connection: disconnected");
+});
 
 // Connect to MongoDB without blocking server startup
 connectToMongoDB();
@@ -116,10 +126,7 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-// Mongoose connection event listeners
-mongoose.connection.on('connected', () => console.log('Mongoose connection: connected'));
-mongoose.connection.on('error', (err) => console.error('Mongoose connection error:', err));
-mongoose.connection.on('disconnected', () => console.warn('Mongoose connection: disconnected'));
+// Mongoose connection event listeners (already added above in connectToMongoDB section)
 
 // Routes
 app.use('/api/users', userRoutes);
