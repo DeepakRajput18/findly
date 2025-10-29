@@ -47,11 +47,16 @@ const ItemCard = ({
   // Get category icon
   const categoryIcon = getCategoryIcon(item.category);
 
-  // Generate fallback image URL based on category
+  // Generate fallback image URL based on known items or category
   const getFallbackImage = () => {
+    const name = (item.item_name || '').toLowerCase();
     const categoryName = item.category ? item.category.toLowerCase() : 'item';
-    const itemName = item.item_name ? item.item_name.toLowerCase().split(' ')[0] : '';
-    return `https://source.unsplash.com/400x300/?${categoryName},${itemName},${type}`;
+    // Specific item fallbacks
+    if (name.includes('iphone')) return '/assets/fallback-images/iphone13.jpg';
+    if (name.includes('necklace')) return '/assets/fallback-images/necklace.jpg';
+    if (name.includes('key')) return '/assets/fallback-images/keys.jpg';
+    // Category-based fallback
+    return `/assets/fallback-images/${categoryName}.svg`;
   };
 
   // Handle image error

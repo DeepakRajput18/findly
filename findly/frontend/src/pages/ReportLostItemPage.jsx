@@ -86,10 +86,10 @@ const ReportLostItemPage = () => {
     
     try {
       // Try standard port 5001 first with a short timeout
-      console.log('Checking server connection on port 5001...');
+      console.log('Checking server connection via relative /api...');
       try {
-        await axios.get('http://localhost:5001/api/lost-items', { timeout: 3000 });
-        console.log('Server is available on port 5001');
+        await axios.get('/api/lost-items', { timeout: 3000 });
+        console.log('Server is available via proxy');
         return true;
       } catch (error) {
         // If we got a 404, that means the server is up but endpoint returned not found
@@ -103,44 +103,8 @@ const ReportLostItemPage = () => {
     } catch (error) {
       console.log('Server connection check failed on port 5001:', error.message);
       
-      // Try alternate port 5000
-      try {
-        console.log('Trying alternate port 5000...');
-        try {
-          await axios.get('http://localhost:5000/api/lost-items', { timeout: 3000 });
-          console.log('Server is available on port 5000');
-          return true;
-        } catch (error) {
-          // If we got a 404, that means the server is up but endpoint returned not found
-          if (error.response && error.response.status === 404) {
-            console.log('Server is available on port 5000 (404 response)');
-            return true;
-          }
-          throw error; // Re-throw to try relative path
-        }
-      } catch (secondError) {
-        console.log('Server connection check failed on both ports:', secondError.message);
-        
-        // Try a third attempt with a relative URL which will use the current host
-        try {
-          console.log('Trying relative API path...');
-          try {
-            await axios.get('/api/lost-items', { timeout: 3000 });
-            console.log('Server is available via relative path');
-            return true;
-          } catch (error) {
-            // If we got a 404, that means the server is up but endpoint returned not found
-            if (error.response && error.response.status === 404) {
-              console.log('Server is available via relative path (404 response)');
-              return true;
-            }
-            throw error;
-          }
-        } catch (thirdError) {
-          console.log('All server connection attempts failed');
-          return false;
-        }
-      }
+      console.log('Server connection check via proxy failed');
+      return false;
     }
   };
 

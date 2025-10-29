@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-// Use environment variable for API URL, fallback to relative path or localhost
-const API_URL = import.meta.env.VITE_API_URL 
+// Use environment variable for API URL, otherwise use relative '/api' to hit Vite proxy
+const API_URL = import.meta.env.VITE_API_URL
   ? `${import.meta.env.VITE_API_URL}/api`
-  : (process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5001/api');
+  : '/api';
 
 // Add request timeout
-axios.defaults.timeout = 15000; // 15 seconds timeout
+axios.defaults.timeout = 20000; // 20 seconds global timeout
 
 // Add response interceptor for better error handling
 axios.interceptors.response.use(
@@ -62,7 +62,7 @@ export const lostItemsApi = {
       try {
         console.log(`API: Attempting to fetch lost items (retries left: ${retries})`);
         const response = await axios.get(`${API_URL}/lost-items`, {
-          timeout: 8000 // 8 second timeout for read operations
+          timeout: 12000 // 12 second timeout for read operations
         });
         
         console.log('API: Successfully fetched lost items, count:', response.data.length);
@@ -76,8 +76,8 @@ export const lostItemsApi = {
           
           if (retries > 0) {
             retries--;
-            // Wait 1.5 seconds before retrying
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            // Wait 1 second before retrying
+            await new Promise(resolve => setTimeout(resolve, 1000));
             continue; // retry the request
           }
         }

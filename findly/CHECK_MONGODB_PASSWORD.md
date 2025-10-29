@@ -63,3 +63,4 @@ Then edit `.env` file and replace `Findly123` with your actual password.
 
 **The password `Findly123` might not be correct. Check your MongoDB Atlas to get the real password!**
 
+

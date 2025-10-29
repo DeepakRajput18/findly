@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { FindInPage as FindIcon } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';

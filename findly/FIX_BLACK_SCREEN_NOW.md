@@ -89,3 +89,4 @@ Value: https://findly-app.onrender.com
 
 Just add those 5 variables in Render and black screen will be gone! 🚀
 
+

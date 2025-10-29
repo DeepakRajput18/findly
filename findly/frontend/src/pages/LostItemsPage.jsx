@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -55,62 +56,23 @@ const LostItemsPage = () => {
     }
     
     try {
-      // Try standard port 5001 first with a short timeout
-      console.log('Checking server connection on port 5001...');
+      // Use lightweight health endpoint instead of heavy list endpoint
+      console.log('Checking server connection via /health...');
       try {
-        await axios.get('http://localhost:5001/api/lost-items', { timeout: 3000 });
-        console.log('Server is available on port 5001');
+        await axios.get('/health', { timeout: 2000 });
+        console.log('Server is available (health ok)');
         return true;
       } catch (error) {
-        // If we got a 404, that means the server is up but endpoint returned not found
-        // This is still a successful connection to the server
-        if (error.response && error.response.status === 404) {
-          console.log('Server is available on port 5001 (404 response)');
+        // If server responds with any HTTP status, it is reachable
+        if (error.response) {
+          console.log('Server responded to health check with status', error.response.status);
           return true;
         }
-        throw error; // Re-throw to try alternate ports
+        throw error; // Network/timeout -> treat as failure
       }
     } catch (error) {
-      console.log('Server connection check failed on port 5001:', error.message);
-      
-      // Try alternate port 5000
-      try {
-        console.log('Trying alternate port 5000...');
-        try {
-          await axios.get('http://localhost:5000/api/lost-items', { timeout: 3000 });
-          console.log('Server is available on port 5000');
-          return true;
-        } catch (error) {
-          // If we got a 404, that means the server is up but endpoint returned not found
-          if (error.response && error.response.status === 404) {
-            console.log('Server is available on port 5000 (404 response)');
-            return true;
-          }
-          throw error; // Re-throw to try relative path
-        }
-      } catch (secondError) {
-        console.log('Server connection check failed on both ports:', secondError.message);
-        
-        // Try a third attempt with a relative URL which will use the current host
-        try {
-          console.log('Trying relative API path...');
-          try {
-            await axios.get('/api/lost-items', { timeout: 3000 });
-            console.log('Server is available via relative path');
-            return true;
-          } catch (error) {
-            // If we got a 404, that means the server is up but endpoint returned not found
-            if (error.response && error.response.status === 404) {
-              console.log('Server is available via relative path (404 response)');
-              return true;
-            }
-            throw error;
-          }
-        } catch (thirdError) {
-          console.log('All server connection attempts failed');
-          return false;
-        }
-      }
+      console.log('Server connection check via proxy failed');
+      return false;
     }
   };
 

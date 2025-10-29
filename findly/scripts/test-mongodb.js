@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb+srv://findly-user:Findly123@cluster0.hbjeybx.mongodb.net/findly?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://findly-user:findly123@cluster0.hbjeybx.mongodb.net/findly?retryWrites=true&w=majority';
 
 console.log('🔍 Testing MongoDB connection...');
 

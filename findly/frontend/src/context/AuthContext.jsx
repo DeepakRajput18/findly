@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -26,11 +27,11 @@ export const AuthProvider = ({ children }) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             
             // Verify token is still valid (optional - can be removed for better performance)
-            try {
-              const apiUrl = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
-              const response = await axios.get(`${apiUrl}/users/me`);
-              setUser(response.data);
-            } catch (error) {
+                try {
+                  const apiUrl = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
+                  const response = await axios.get(`${apiUrl}/users/profile`);
+                  setUser(response.data);
+                } catch (error) {
               // Token is invalid, clear storage
               console.log('Token validation failed, clearing storage');
               localStorage.removeItem('user');
@@ -63,7 +64,7 @@ export const AuthProvider = ({ children }) => {
       
       console.log('Attempting to register user:', { ...userData, password: '[REDACTED]' });
       
-      const response = await axios.post('http://localhost:5001/api/users/register', userData, {
+      const response = await axios.post('/api/users/register', userData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -127,7 +128,7 @@ export const AuthProvider = ({ children }) => {
       }
       
       // Regular user authentication via API
-      const response = await axios.post('http://localhost:5001/api/users/login', { 
+      const response = await axios.post('/api/users/login', { 
         email, 
         password
       });
@@ -229,7 +230,7 @@ export const AuthProvider = ({ children }) => {
       console.log('Sending request with headers:', headers);
       
       const response = await axios.put(
-        'http://localhost:5001/api/users/profile', 
+        '/api/users/profile', 
         userData,
         { headers }
       );

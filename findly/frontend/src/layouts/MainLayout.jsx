@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -14,7 +15,6 @@ import {
   MenuItem,
   Drawer,
   List,
-  ListItem,
   ListItemIcon,
   ListItemText,
   Divider,
@@ -26,6 +26,7 @@ import {
   Fade,
   Chip,
   LinearProgress,
+  ListItemButton,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -133,8 +134,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem
-            button
+          <ListItemButton
             key={item.name}
             component={Link}
             to={item.path}
@@ -168,7 +168,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
                 }}
               />
             )}
-          </ListItem>
+          </ListItemButton>
         ))}
       </List>
       <Divider />
@@ -203,7 +203,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
           <Box sx={{ p: 2, display: 'flex', alignItems: 'center' }}>
             <Avatar
               alt={user.name}
-              src={user.profileImage ? `http://localhost:5001${user.profileImage}` : ''}
+              src={user.profileImage ? `${user.profileImage}` : ''}
               sx={{ width: 40, height: 40, mr: 2 }}
             />
             <Box>
@@ -215,8 +215,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
           </Box>
           <Divider />
           {authItems.map((item) => (
-            <ListItem
-              button
+            <ListItemButton
               key={item.name}
               component={item.path ? Link : 'div'}
               to={item.path}
@@ -257,7 +256,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
                   }}
                 />
               )}
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       )}
@@ -468,7 +467,7 @@ const MainLayout = ({ toggleDarkMode, darkMode }) => {
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       <Avatar 
                         alt={user.name}
-                        src={user.profileImage ? `http://localhost:5001${user.profileImage}` : ''}
+                        src={user.profileImage ? `${user.profileImage}` : ''}
                         sx={{
                           transition: 'transform 0.3s',
                           '&:hover': { transform: 'scale(1.1)' },

@@ -356,6 +356,7 @@ const NotificationsPage = () => {
                         </Box>
                       </>
                     }
+                    secondaryTypographyProps={{ component: 'div' }}
                   />
                 </ListItem>
                 {index < notifications.length - 1 && <Divider component="li" />}

@@ -78,3 +78,4 @@ Server running on port 5001
 ---
 
 **The password `Findly123` must match exactly in MongoDB Atlas!**
+

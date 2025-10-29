@@ -359,7 +359,7 @@ const LostItemDetailPage = () => {
                 color="primary"
                 fullWidth
                 sx={{ mb: 2 }}
-                onClick={() => setFoundOpen(true)}
+                onClick={(e) => { e.currentTarget.blur(); setFoundOpen(true); }}
               >
                 I Found This Item
               </Button>
@@ -367,7 +367,7 @@ const LostItemDetailPage = () => {
               <Button
                 variant="outlined"
                 fullWidth
-                onClick={() => setContactOpen(true)}
+                onClick={(e) => { e.currentTarget.blur(); setContactOpen(true); }}
               >
                 Contact Owner
               </Button>
@@ -382,6 +382,7 @@ const LostItemDetailPage = () => {
         onClose={() => setContactOpen(false)}
         maxWidth="sm"
         fullWidth
+        keepMounted
       >
         <DialogTitle>
           <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -483,6 +484,7 @@ const LostItemDetailPage = () => {
         onClose={() => setFoundOpen(false)}
         maxWidth="md"
         fullWidth
+        keepMounted
       >
         <DialogTitle>
           <Box display="flex" justifyContent="space-between" alignItems="center">

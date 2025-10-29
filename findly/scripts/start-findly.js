@@ -47,3 +47,4 @@ exec('node scripts/kill-ports.js', (error, stdout) => {
     }, 2000);
   });
 });
+

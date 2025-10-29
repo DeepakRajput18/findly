@@ -1,4 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+/** @jsxImportSource react */
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { useState, useEffect } from 'react';
 
@@ -52,7 +54,6 @@ import { AuthProvider } from './context/AuthContext';
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Check for dark mode preference
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode) {
@@ -63,130 +64,128 @@ const App = () => {
     }
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem('darkMode', String(newMode));
   };
 
-  // Create theme
   const theme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
-      primary: {
-        main: '#2196f3',
-      },
-      secondary: {
-        main: '#f50057',
-      },
+      primary: { main: '#2196f3' },
+      secondary: { main: '#f50057' },
     },
     typography: {
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      h1: {
-        fontSize: '2.5rem',
-        fontWeight: 500,
-      },
-      h2: {
-        fontSize: '2rem',
-        fontWeight: 500,
-      },
-      h3: {
-        fontSize: '1.75rem',
-        fontWeight: 500,
-      },
-      h4: {
-        fontSize: '1.5rem',
-        fontWeight: 500,
-      },
-      h5: {
-        fontSize: '1.25rem',
-        fontWeight: 500,
-      },
-      h6: {
-        fontSize: '1rem',
-        fontWeight: 500,
-      },
-    },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: 8,
-            textTransform: 'none',
-            fontWeight: 500,
-          },
-        },
-      },
-      MuiCard: {
-        styleOverrides: {
-          root: {
-            borderRadius: 12,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          },
-        },
-      },
     },
   });
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <MainLayout toggleDarkMode={toggleDarkMode} darkMode={darkMode} />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: 'login', element: <LoginPage /> },
+        { path: 'register', element: <RegisterPage /> },
+
+        { path: 'forgot-password', element: <ForgotPasswordPage /> },
+        { path: 'forgot-password/otp', element: <ForgotPasswordOTPPage /> },
+        { path: 'verify-otp', element: <VerifyOTPPage /> },
+        { path: 'reset-password-otp', element: <ResetPasswordOTPPage /> },
+
+        { path: 'lost-items', element: <LostItemsPage /> },
+        { path: 'found-items', element: <FoundItemsPage /> },
+        { path: 'lost-items/:id', element: <LostItemDetailPage /> },
+        { path: 'found-items/:id', element: <FoundItemDetailPage /> },
+
+        { path: 'report-lost-item', element: (
+          <ProtectedRoute>
+            <ReportLostItemPage />
+          </ProtectedRoute>
+        ) },
+        { path: 'report-found-item', element: (
+          <ProtectedRoute>
+            <ReportFoundItemPage />
+          </ProtectedRoute>
+        ) },
+
+        { path: 'matches', element: (
+          <ProtectedRoute>
+            <MatchesPage />
+          </ProtectedRoute>
+        ) },
+        { path: 'matches/:id', element: (
+          <ProtectedRoute>
+            <MatchDetailPage />
+          </ProtectedRoute>
+        ) },
+
+        { path: 'messages', element: (
+          <ProtectedRoute>
+            <MessagesPage />
+          </ProtectedRoute>
+        ) },
+        { path: 'messages/:userId', element: (
+          <ProtectedRoute>
+            <ConversationPage />
+          </ProtectedRoute>
+        ) },
+
+        { path: 'notifications', element: (
+          <ProtectedRoute>
+            <NotificationsPage />
+          </ProtectedRoute>
+        ) },
+
+        { path: 'profile', element: (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ) },
+
+        { path: 'map', element: <MapPage /> },
+        { path: 'how-it-works', element: <HowItWorks /> },
+        { path: 'contact', element: <ContactSupport /> },
+        { path: 'terms', element: <TermsOfService /> },
+        { path: 'privacy', element: <PrivacyPolicy /> },
+        { path: 'cookies', element: <CookiePolicy /> },
+        { path: 'gdpr', element: <GDPRCompliance /> },
+        { path: 'accessibility', element: <Accessibility /> },
+        { path: 'logout', element: <LogoutPage /> },
+
+        { path: '*', element: <NotFoundPage /> },
+      ],
+    },
+    {
+      path: '/admin',
+      element: (
+        <AdminProtectedRoute>
+          <AdminLayout />
+        </AdminProtectedRoute>
+      ),
+      children: [
+        { index: true, element: <AdminDashboard /> },
+        { path: 'users', element: <AdminUsers /> },
+        { path: 'items', element: <AdminItems /> },
+        { path: 'reports', element: <AdminReports /> },
+        { path: 'settings', element: <AdminSettings /> },
+      ],
+    },
+  ]);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AuthProvider>
-        <Router>
-          <Routes>
-            {/* Main App Routes */}
-            <Route path="/" element={<MainLayout toggleDarkMode={toggleDarkMode} darkMode={darkMode} />}>
-              <Route index element={<HomePage />} />
-              <Route path="login" element={<LoginPage />} />
-              <Route path="register" element={<RegisterPage />} />
-              <Route path="forgot-password" element={<ForgotPasswordPage />} />
-              <Route path="forgot-password-otp" element={<ForgotPasswordOTPPage />} />
-              <Route path="verify-otp" element={<VerifyOTPPage />} />
-              <Route path="reset-password" element={<ResetPasswordOTPPage />} />
-              <Route path="logout" element={<ProtectedRoute><LogoutPage /></ProtectedRoute>} />
-              
-              {/* Protected Routes */}
-              <Route path="profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-              <Route path="lost-items" element={<ProtectedRoute><LostItemsPage /></ProtectedRoute>} />
-              <Route path="lost-items/:id" element={<ProtectedRoute><LostItemDetailPage /></ProtectedRoute>} />
-              <Route path="report-lost-item" element={<ProtectedRoute><ReportLostItemPage /></ProtectedRoute>} />
-              <Route path="found-items" element={<ProtectedRoute><FoundItemsPage /></ProtectedRoute>} />
-              <Route path="found-items/:id" element={<ProtectedRoute><FoundItemDetailPage /></ProtectedRoute>} />
-              <Route path="report-found-item" element={<ProtectedRoute><ReportFoundItemPage /></ProtectedRoute>} />
-              <Route path="matches" element={<ProtectedRoute><MatchesPage /></ProtectedRoute>} />
-              <Route path="matches/:id" element={<ProtectedRoute><MatchDetailPage /></ProtectedRoute>} />
-              <Route path="messages" element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} />
-              <Route path="messages/:userId" element={<ProtectedRoute><ConversationPage /></ProtectedRoute>} />
-              <Route path="notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
-              <Route path="map" element={<ProtectedRoute><MapPage /></ProtectedRoute>} />
-              
-              {/* Public Routes */}
-              <Route path="how-it-works" element={<HowItWorks />} />
-              <Route path="contact" element={<ContactSupport />} />
-              <Route path="terms" element={<TermsOfService />} />
-              <Route path="privacy" element={<PrivacyPolicy />} />
-              <Route path="cookies" element={<CookiePolicy />} />
-              <Route path="gdpr" element={<GDPRCompliance />} />
-              <Route path="accessibility" element={<Accessibility />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-            
-            {/* Admin Routes with AdminLayout */}
-            <Route path="/admin" element={
-              <AdminProtectedRoute>
-                <AdminLayout toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-              </AdminProtectedRoute>
-            }>
-              <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="users" element={<AdminUsers />} />
-              <Route path="items" element={<AdminItems />} />
-              <Route path="reports" element={<AdminReports />} />
-              <Route path="settings" element={<AdminSettings />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-          </Routes>
-        </Router>
+        <RouterProvider 
+          router={router}
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        />
       </AuthProvider>
     </ThemeProvider>
   );

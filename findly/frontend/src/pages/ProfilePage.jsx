@@ -139,10 +139,10 @@ const ProfilePage = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
           <Box sx={{ position: 'relative' }}>
             {console.log('Rendering profile image:', 
-              imagePreview || (user.profileImage ? `http://localhost:5001${user.profileImage}` : 'no image'))}
+              imagePreview || (user.profileImage ? `${user.profileImage}` : 'no image'))}
             <Avatar
               sx={{ width: 100, height: 100, mb: 2, bgcolor: 'primary.main' }}
-              src={imagePreview || (user.profileImage ? `http://localhost:5001${user.profileImage}` : '')}
+              src={imagePreview || (user.profileImage ? `${user.profileImage}` : '')}
               alt={user.name}
               imgProps={{
                 onError: (e) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Container, Typography, Stepper, Step, StepLabel, StepContent, Paper, Button, Divider } from '@mui/material';
 import {
   FindInPage as LostItemsIcon,
@@ -18,35 +19,35 @@ const HowItWorks = () => {
       a detailed description, and the approximate location where you lost it. The more information 
       you provide, the higher the chances of finding a match. Similarly, if you've found an item, 
       report it with details to help the owner identify it.`,
-      icon: LostItemsIcon,
+      icon: <LostItemsIcon />,
     },
     {
       label: 'AI-Powered Matching',
       description: `Our advanced AI algorithms analyze reported lost and found items to identify potential 
       matches based on descriptions, photos, location data, and other factors. The system continuously 
       scans for new matches as items are reported.`,
-      icon: MatchesIcon,
+      icon: <MatchesIcon />,
     },
     {
       label: 'Notification of Potential Matches',
       description: `When the system identifies a potential match between a lost and found item, 
       both parties are notified. You'll receive a notification through the platform and 
       optionally via email, depending on your notification settings.`,
-      icon: NotificationsIcon,
+      icon: <NotificationsIcon />,
     },
     {
       label: 'Secure Communication',
       description: `Once a potential match is identified, you can communicate with the other party 
       through our secure messaging system. This allows you to discuss details and arrange for 
       the return of the item without sharing personal contact information until you're ready.`,
-      icon: ChatIcon,
+      icon: <ChatIcon />,
     },
     {
       label: 'Retrieve Your Item',
       description: `After confirming the match, you can arrange to meet in a safe public location 
       to retrieve the item. We recommend following our safety guidelines when meeting someone 
       to exchange an item.`,
-      icon: LocationIcon,
+      icon: <LocationIcon />,
     },
   ];
 
@@ -85,7 +86,7 @@ const HowItWorks = () => {
           <Stepper orientation="vertical">
             {steps.map((step, index) => (
               <Step key={step.label} active={true}>
-                <StepLabel StepIconComponent={step.icon}>
+                <StepLabel icon={step.icon}>
                   <Typography variant="h6">{step.label}</Typography>
                 </StepLabel>
                 <StepContent>

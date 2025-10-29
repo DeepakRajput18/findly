@@ -75,7 +75,7 @@ const FoundItemDetailPage = () => {
             found_location: 'Central Park, near the fountain',
             found_date: new Date().toISOString(),
             status: 'Found',
-            image_url: 'https://via.placeholder.com/600x400?text=Found+Item',
+            image_url: '/assets/fallback-images/electronics.jpg',
             user_id: {
               _id: '123',
               name: 'Jane Smith',
@@ -392,13 +392,18 @@ const FoundItemDetailPage = () => {
           <Grid item xs={12} md={6}>
             <Box
               component="img"
-              src={item.image_url || 'https://via.placeholder.com/600x400?text=No+Image'}
+              src={item.image_url || '/assets/fallback-images/default-item.jpg'}
               alt={item.item_name}
               sx={{
                 width: '100%',
                 height: 'auto',
                 borderRadius: 2,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              }}
+              onError={(e) => {
+                e.target.onerror = null;
+                const fallback = `/assets/fallback-images/${(item.category || 'default').toLowerCase().replace(/\s+/g, '-')}.jpg`;
+                e.target.src = fallback;
               }}
             />
           </Grid>
@@ -452,7 +457,7 @@ const FoundItemDetailPage = () => {
                 color="primary"
                 fullWidth
                 sx={{ mb: 2 }}
-                onClick={handleOpenClaimDialog}
+                onClick={(e) => { e.currentTarget.blur(); handleOpenClaimDialog(); }}
               >
                 This Is My Item
               </Button>
@@ -460,7 +465,7 @@ const FoundItemDetailPage = () => {
               <Button
                 variant="outlined"
                 fullWidth
-                onClick={handleOpenContactDialog}
+                onClick={(e) => { e.currentTarget.blur(); handleOpenContactDialog(); }}
               >
                 Contact Finder
               </Button>
@@ -470,7 +475,7 @@ const FoundItemDetailPage = () => {
       </Paper>
 
       {/* Claim Item Dialog */}
-      <Dialog open={openClaimDialog} onClose={handleCloseClaimDialog} maxWidth="sm" fullWidth>
+      <Dialog open={openClaimDialog} onClose={handleCloseClaimDialog} maxWidth="sm" fullWidth keepMounted>
         <DialogTitle>
           Claim "{item?.item_name}"
         </DialogTitle>
@@ -600,7 +605,7 @@ const FoundItemDetailPage = () => {
       </Dialog>
       
       {/* Contact Finder Dialog */}
-      <Dialog open={openContactDialog} onClose={handleCloseContactDialog} maxWidth="sm" fullWidth>
+      <Dialog open={openContactDialog} onClose={handleCloseContactDialog} maxWidth="sm" fullWidth keepMounted>
         <DialogTitle>
           Contact Finder about "{item?.item_name}"
         </DialogTitle>
